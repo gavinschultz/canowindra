@@ -4,8 +4,9 @@
 #include "SDL.h"
 #include <stdlib.h>
 
-#define FIXPOINT_SHIFT  16
-#define FIXPOINT_SCALE  65536
+#define FPSHIFT  16
+#define FPSCALE  65536
+#define FPONE    65536
 
 typedef int32_t fixed;
 

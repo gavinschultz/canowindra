@@ -1,6 +1,9 @@
 #include    "SDL.h"
+#include    <windows.h>
+#include    "GLEE.h"
 #include    "graphics.h"
 #include    "debug.h"
+#include    "io.h"
 
 static SDL_Surface *sdlscreen = NULL;
 static struct GFX_Screen screen;
@@ -55,7 +58,6 @@ void init_gfx(const GLfloat x_axis, const GLfloat y_axis)
         screen.res.v = DEFAULT_VRES;
     }
 
-//    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     sdlscreen = SDL_SetVideoMode(screen.res.h, screen.res.v, screen.colordepth, video_flags | SDL_OPENGL | SDL_ANYFORMAT | SDL_RESIZABLE);
     if (sdlscreen == NULL)
@@ -65,6 +67,8 @@ void init_gfx(const GLfloat x_axis, const GLfloat y_axis)
     }
 
     init_gl();
+    load_sprites();
+    load_background();
 }
 
 static void init_gl()
@@ -142,8 +146,8 @@ void toggle_fullscreen()
 void toggle_vsync()
 {
     screen.vsync = !screen.vsync;
-//    if (GLEE_WGL_EXT_swap_control)
-//        wglSwapIntervalEXT(vsync);
+    if (GLEE_WGL_EXT_swap_control)
+        wglSwapIntervalEXT(screen.vsync);
 }
 
 const struct GFX_Screen *get_gfx_info()
@@ -165,3 +169,17 @@ void shutdown_gfx()
     SDL_FreeSurface(sdlscreen);
     sdlscreen = NULL;
 }
+
+// Load all sprites from disk
+static void load_sprites() 
+{
+    char *buffer = NULL;
+    buffer = file_open("simple4.tga");
+}
+
+static void load_background()
+{
+
+}
+
+

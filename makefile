@@ -10,7 +10,7 @@ CC = cl.exe
 LINK = link.exe
 CFLAGS = /D "_CRT_SECURE_NO_WARNINGS" /MT /O2 /TC /c -I$(INCDIR) /W3 /GS-
 LFLAGS = /INCREMENTAL /SUBSYSTEM:CONSOLE /MACHINE:X86 /VERBOSE:LIB
-LIBS = SDL.lib SDLmain.lib glu32.lib opengl32.lib
+LIBS = SDL.lib SDLmain.lib glu32.lib opengl32.lib ./lib/soil.lib ./lib/physfs.lib
 DEL = del /F /Q
 COPY = copy /Y
 

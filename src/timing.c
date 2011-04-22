@@ -37,7 +37,7 @@ void end_frame()
     frame++;
     if (_elapsed_time > 0)
     {
-        frame_rate = (float)(1 << FIXPOINT_SHIFT) / (float)_elapsed_time;
+        frame_rate = (float)(FPONE) / (float)_elapsed_time;
     }
 }
 
