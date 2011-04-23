@@ -3,17 +3,7 @@
 #define  PHYSICS_INC
 
 #include "fixed.h"
-
-typedef struct Vector2D
-{
-    float x, y;
-} VECTOR2D;
-
-typedef struct State2D
-{
-    VECTOR2D pos; // position vector
-    VECTOR2D vel; // velocity vector
-} STATE2D;
+#include "geometry2d.h"
 
 typedef struct Entity2D
 {
